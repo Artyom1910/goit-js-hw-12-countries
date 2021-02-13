@@ -1,0 +1,15 @@
+{{#each this}}
+<div class="wraper">
+    <div class="info-wraper">
+        <h1 class="counntry__name">Name: {{name}}</h1>
+        <h3 class="capital">Capital: {{capital}}</h3>
+        <h3 class="population">Population: {{population}}</h3>
+        <ul class="languages">
+            <h3>Languages: {{#each languages}}</h3>
+            <li class="language__item">{{this.name}}</li>
+            {{/each}}
+    </div>
+    </ul>
+    <img class="flag" src="{{flag}}" alt="The flag of the country" width="300">
+</div>
+{{/each}}
