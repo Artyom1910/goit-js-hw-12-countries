@@ -14,23 +14,37 @@ function updateCountriesMarkup(countries) {
       hide: true,
     });
     return;
-  } else if (countries.length > 10) {
+  }
+
+  if (countries.length > 10) {
     error({
       text: 'Too many matches found. Please entert a more specific query!',
       type: 'info',
       delay: 1500,
       hide: true,
     });
-    return;
-  } else if (countries.length > 1 && countries.length <= 10) {
-    const markupFew = countriesTemplateFew(countries);
-    refs.countriesContainer.insertAdjacentHTML('beforeend', markupFew);
-    return;
-  } else if (countries.length === 1) {
-    const markup = countriesTemplate(countries);
-    refs.countriesContainer.insertAdjacentHTML('beforeend', markup);
+  }
+
+  if (countries.length === 1) {
+    MarkupTemplate(countries);
     return;
   }
+
+  if (countries.length > 1 && countries.length <= 10) {
+    MarkupTemplateFew(countries);
+    return;
+  }
+}
+
+function MarkupTemplateFew(countries) {
+  const markupFew = countriesTemplateFew(countries);
+  refs.countriesContainer.insertAdjacentHTML('beforeend', markupFew);
+}
+
+function MarkupTemplate(countries) {
+  const markup = countriesTemplate(countries);
+  refs.countriesContainer.insertAdjacentHTML('beforeend', markup);
+  return;
 }
 
 export default updateCountriesMarkup;
