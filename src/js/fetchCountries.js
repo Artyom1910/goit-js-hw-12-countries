@@ -8,16 +8,10 @@ function fetchCountries(searchQuery) {
       Accept: 'application/json',
     },
   };
-  return fetch(url)
-    .then(response => {
-      return response.json();
-    })
+  fetch(url, options)
+    .then(response => response.json())
     .then(updateCountriesMarkup)
-    .catch(
-      error({
-        error: 'server error'
-      }),
-    );
+    .catch(error => console.log(error));
 }
 
 export default fetchCountries;

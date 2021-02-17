@@ -44,7 +44,6 @@ function MarkupTemplateFew(countries) {
 function MarkupTemplate(countries) {
   const markup = countriesTemplate(countries);
   refs.countriesContainer.insertAdjacentHTML('beforeend', markup);
-  return;
 }
 
 export default updateCountriesMarkup;

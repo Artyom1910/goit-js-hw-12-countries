@@ -1,6 +1,6 @@
 import './styles.css';
 import fetchCountries from './js/fetchCountries';
-import debounce from 'lodash.debounce/index.js';
+import debounce from 'lodash.debounce';
 import refs from './js/refs';
 
 refs.searchInput.addEventListener(
@@ -8,6 +8,8 @@ refs.searchInput.addEventListener(
   debounce(() => {
     const inputValue = refs.searchInput.value;
     refs.countriesContainer.innerHTML = '';
-    fetchCountries(inputValue);
+    if (inputValue.trim()) {
+      fetchCountries(inputValue);
+    }
   }, 500),
 );
